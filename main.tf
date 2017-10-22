@@ -1,19 +1,24 @@
+variable "sensitive_s3_bucket" {
+  type = "string"
+  default = "kingdonb-terraform-deis-database-1"
+}
+
+resource "aws_s3_bucket" "d" {
+  bucket = "${var.sensitive_s3_bucket}"
+  acl    = "private"
+
+  tags {
+    Name        = "database"
+    Environment = "Dev"
+    Creator     = "kingdon-terraform"
+  }
+}
 resource "aws_s3_bucket" "b" {
   bucket = "kingdonb-terraform-deis-builder-1"
   acl    = "private"
 
   tags {
     Name        = "builder"
-    Environment = "Dev"
-    Creator     = "kingdon-terraform"
-  }
-}
-resource "aws_s3_bucket" "d" {
-  bucket = "kingdonb-terraform-deis-database-1"
-  acl    = "private"
-
-  tags {
-    Name        = "database"
     Environment = "Dev"
     Creator     = "kingdon-terraform"
   }
@@ -63,11 +68,6 @@ resource "aws_s3_bucket_policy" "database_policy" {
   ]
 }
 POLICY
-}
-
-variable "sensitive_s3_bucket" {
-  type = "string"
-  default = "kingdonb-terraform-deis-database-1"
 }
 
 provider "aws" {}
