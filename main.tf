@@ -1,6 +1,6 @@
 variable "sensitive_s3_bucket" {
   type = "string"
-  default = "kingdonb-terraform-deis-database-1"
+  default = "kingdonb-moo-database-1"
 }
 
 provider "aws" {}

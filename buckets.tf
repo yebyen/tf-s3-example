@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "d" {
   }
 }
 resource "aws_s3_bucket" "b" {
-  bucket = "kingdonb-terraform-deis-builder-1"
+  bucket = "kingdonb-moo-builder-1"
   acl    = "private"
 
   tags {
@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "b" {
   }
 }
 resource "aws_s3_bucket" "r" {
-  bucket = "kingdonb-terraform-deis-registry-1"
+  bucket = "kingdonb-moo-registry-1"
   acl    = "private"
 
   tags {
